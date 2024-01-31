@@ -32,7 +32,7 @@ export const Footer = () => {
 							</p>
 							<ul className="flex flex-col gap-1 text-slate-700 dark:text-neutral-300">
 								<li>
-									<a href="mailto:info@netrobase.dev?subject=I have a question about..." target='_blank' rel="noopener noreferrer" className="hover:underline">
+									<a href="mailto:info@netrobase.dev?subject=I have a question about..." className="hover:underline">
 										info@netrobase.dev
 									</a>
 								</li>
