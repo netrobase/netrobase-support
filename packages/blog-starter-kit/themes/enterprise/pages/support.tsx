@@ -123,7 +123,9 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 				<Container className="flex flex-col items-stretch space-y-20 px-5 py-10 pb-10">
 					<div className="flex flex-col items-center space-y-5">
 						<p className="p-2 text-center text-2xl font-bold">Welcome to Netrobase Help Center!</p>
-						<Search />
+						<span className="w-full lg:w-96">
+							<Search />
+						</span>
 					</div>
 					{allPosts.length === 0 && (
 						<div className="grid grid-cols-1 py-20 lg:grid-cols-3">
