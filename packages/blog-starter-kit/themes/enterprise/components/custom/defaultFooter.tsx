@@ -1,25 +1,25 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 export const Footer = () => {
 	return (
 		<footer className="border-t py-5">
-			<div className="px-5">
-				<div className="flex w-full flex-row justify-center py-5">
-					<Link
-						href={'/'}
-						aria-label={`Netrobase Enginnering Home Page`}
-						className="flex flex-row items-center gap-5"
-					>
-						<img
-							className="block w-40"
-							src="/images/netrobase-engr-logo.png"
-							alt="Netrobase Engineering Logo"
-						/>
-					</Link>
-				</div>
+			<div className="flex flex-col space-y-5">
+				<Link
+					href={'/'}
+					aria-label={`Netrobase Enginnering Home Page`}
+					className="flex flex-row items-center justify-center"
+				>
+					<Image
+						src="/images/netrobase-engr-logo.png"
+						height={500}
+						width={300}
+						alt="Netrobase Engineering Logo"
+					/>
+				</Link>
 
 				<div className="flex flex-row justify-between">
-					<div className="grid grid-cols-2 gap-x-10 gap-y-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
+					<div className="grid grid-cols-1 gap-x-10 gap-y-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
 						<div className="flex flex-col items-start space-y-1 text-left">
 							<p className="font-bold">Stay in touch</p>
 							<ul className="flex flex-col gap-1">
@@ -114,7 +114,7 @@ export const Footer = () => {
 						</div>
 					</div>
 					<div className="flex flex-col items-end space-y-1 text-right md:text-left">
-						{/* <SocialLinks /> */}
+						{/* SocialLinks Here */}
 						<p>
 							&copy; {new Date().getFullYear()}{' '}
 							<Link href="https://netrobase.com" target="_black" className="hover:underline">

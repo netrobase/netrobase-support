@@ -68,11 +68,15 @@ export function Integrations() {
 		})(window,document,'script','dataLayer', '${gTagManagerID}');`;
 
 	useEffect(() => {
-		// @ts-ignore
-		window.gtag('config', gaTrackingID, {
-			transport_url: 'https://ping.hashnode.com',
-			first_party_collection: true,
-		});
+		try {
+			// @ts-ignore
+			window.gtag('config', gaTrackingID, {
+				transport_url: 'https://ping.hashnode.com',
+				first_party_collection: true,
+			});
+		} catch {
+			return;
+		}
 	}, [gaTrackingID]);
 
 	return (
@@ -108,8 +112,11 @@ export function Integrations() {
 				></script>
 			)}
 			{gTagManagerID && (
-        <script type="text/javascript" dangerouslySetInnerHTML={{ __html: googleTagManager }}></script>
-      )}
+				<script
+					type="text/javascript"
+					dangerouslySetInnerHTML={{ __html: googleTagManager }}
+				></script>
+			)}
 			{plausibleAnalyticsEnabled && (
 				<script
 					async

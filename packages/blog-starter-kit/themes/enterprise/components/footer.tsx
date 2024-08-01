@@ -20,12 +20,12 @@ export const Footer = () => {
 						</Link>
 					</div>
 				) : (
-					<p className="mb-20 text-center text-xl font-semibold text-slate-900 dark:text-slate-50 md:text-4xl">
+					<p className="mb-20 text-center text-xl font-semibold text-slate-900 md:text-4xl dark:text-slate-50">
 						{publication.title}
 					</p>
 				)}
 				<div className="flex flex-row justify-between">
-					<div className="grid grid-cols-2 gap-x-10 gap-y-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
+					<div className="grid grid-cols-1 gap-x-10 gap-y-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
 						<div className="flex flex-col items-start space-y-1 text-left">
 							<p className="font-bold text-slate-600 dark:text-neutral-200">Stay in touch</p>
 							<ul className="flex flex-col gap-1 text-slate-700 dark:text-neutral-300">
@@ -119,7 +119,7 @@ export const Footer = () => {
 							</ul>
 						</div>
 					</div>
-					<div className="flex flex-col items-end space-y-1 text-right text-slate-600 dark:text-neutral-300 md:text-left">
+					<div className="flex flex-col items-end space-y-1 text-right text-slate-600 md:text-left dark:text-neutral-300">
 						<SocialLinks />
 						<p>
 							&copy; {new Date().getFullYear()}{' '}
