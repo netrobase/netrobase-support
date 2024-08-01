@@ -4,18 +4,15 @@ import request from 'graphql-request';
 import { GetStaticProps } from 'next';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
+import Link from 'next/link';
 import { useState } from 'react';
-import { Waypoint } from 'react-waypoint';
-import { Button } from '../components/button';
 import { Container } from '../components/container';
 import { AppProvider } from '../components/contexts/appContext';
 import { Footer } from '../components/footer';
 import { Header } from '../components/header';
-import { HeroPost } from '../components/hero-post';
-import { ArticleSVG, ChevronDownSVG } from '../components/icons';
+import { ArticleSVG } from '../components/icons';
 import { Layout } from '../components/layout';
-import { MorePosts } from '../components/more-posts';
-import { Navbar } from '../components/navbar';
+import { Search } from '../components/searchbar';
 import { SecondaryPost } from '../components/secondary-post';
 import {
 	MorePostsByPublicationDocument,
@@ -67,7 +64,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 	};
 
 	const firstPost = allPosts[0];
-	const secondaryPosts = allPosts.slice(1, 4).map((post) => {
+	const secondaryPosts = allPosts.slice(0, 4).map((post) => {
 		return (
 			<SecondaryPost
 				key={post.id}
@@ -123,12 +120,14 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 					/>
 				</Head>
 				<Header />
-				<Container className="flex flex-col items-stretch gap-10 px-5 pb-10">
-					<Navbar />
-
+				<Container className="flex flex-col items-stretch space-y-20 px-5 py-10 pb-10">
+					<div className="flex flex-col items-center space-y-5">
+						<p className="p-2 text-center text-2xl font-bold">Welcome to Netrobase Help Center!</p>
+						<Search />
+					</div>
 					{allPosts.length === 0 && (
 						<div className="grid grid-cols-1 py-20 lg:grid-cols-3">
-							<div className="col-span-1 flex flex-col items-center gap-5 text-center text-slate-700 dark:text-neutral-400 lg:col-start-2">
+							<div className="col-span-1 flex flex-col items-center gap-5 text-center text-slate-700 lg:col-start-2 dark:text-neutral-400">
 								<div className="w-20">
 									<ArticleSVG clasName="stroke-current" />
 								</div>
@@ -138,50 +137,20 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 							</div>
 						</div>
 					)}
-
-					<div className="grid items-start gap-6 xl:grid-cols-2">
-						<div className="col-span-1">
-							{firstPost && (
-								<HeroPost
-									title={firstPost.title}
-									coverImage={firstPost.coverImage?.url || DEFAULT_COVER}
-									date={firstPost.publishedAt}
-									slug={firstPost.slug}
-									excerpt={firstPost.brief}
-								/>
-							)}
-						</div>
-						<div className="col-span-1 flex flex-col gap-6">{secondaryPosts}</div>
-					</div>
-
-					{allPosts.length > 0 && (
-						<div className="bg-primary-50 grid grid-cols-4 rounded-lg px-5 py-5 dark:bg-neutral-900 md:py-10">
-							<div className="col-span-full md:col-span-2 md:col-start-2">
-								<h2 className="text-primary-600 dark:text-primary-500 mb-5 text-center text-lg font-semibold">
-									Subscribe to our newsletter for updates and changelog.
-								</h2>
-								<SubscribeForm />
+					{allPosts.length !== 0 && (
+						<div className="flex flex-col space-y-10">
+							<div className="col-span-2 grid grid-cols-1 gap-6 lg:grid-cols-2">
+								{secondaryPosts}
 							</div>
+							<span className="flex flex-col items-center">
+								<Link
+									href="/articles"
+									className="rounded-lg border border-blue-700 p-4 text-center text-xl font-bold hover:bg-blue-700 hover:text-white"
+								>
+									Explore More Articles
+								</Link>
+							</span>
 						</div>
-					)}
-
-					{morePosts.length > 0 && (
-						<>
-							<MorePosts context="home" posts={morePosts} />
-							{!loadedMore && pageInfo.hasNextPage && pageInfo.endCursor && (
-								<div className="flex w-full flex-row items-center justify-center">
-									<Button
-										onClick={loadMore}
-										type="outline"
-										icon={<ChevronDownSVG className="h-5 w-5 stroke-current" />}
-										label="Load more articles"
-									/>
-								</div>
-							)}
-							{loadedMore && pageInfo.hasNextPage && pageInfo.endCursor && (
-								<Waypoint onEnter={loadMore} bottomOffset={'10%'} />
-							)}
-						</>
 					)}
 				</Container>
 				<Footer />

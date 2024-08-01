@@ -12,9 +12,12 @@ export const Footer = () => {
 				>
 					<Image
 						src="/images/netrobase-engr-logo.png"
+						alt="Netrobase Engineering Logo"
 						height={500}
 						width={300}
-						alt="Netrobase Engineering Logo"
+						priority={true}
+						placeholder="empty"
+						className="h-auto w-auto"
 					/>
 				</Link>
 

@@ -13,11 +13,11 @@ const DefaultNavigation = () => {
 
 	const MenuBar = () => {
 		return (
-			<div className="absolute right-0 top-8 border border-gray-500/50 font-mono">
+			<div className="absolute right-0 top-8 border border-gray-500/50 bg-white font-mono">
 				<HiXMark className="sticky m-2 ml-auto h-6 w-6" />
 				<div className="m-3 flex flex-col space-y-3 p-7">
 					<section className="text-left">
-						<p className="flex flex-row justify-between border-b-2 border-b-neutral-500 text-blue-700">
+						<p className="text-primary-700 flex flex-row justify-between border-b-2 border-b-neutral-500">
 							RESOURCES
 						</p>
 						<div className="flex flex-col">
@@ -30,7 +30,7 @@ const DefaultNavigation = () => {
 						</div>
 					</section>
 					<section className="text-left">
-						<p className="flex flex-row justify-between border-b-2 border-b-neutral-500 text-blue-700">
+						<p className="text-primary-700 flex flex-row justify-between border-b-2 border-b-neutral-500">
 							DOCS
 						</p>
 						<div className="flex flex-col space-y-0.5">
@@ -58,7 +58,7 @@ const DefaultNavigation = () => {
 						</div>
 					</section>
 					<section className="text-left">
-						<p className="flex flex-row justify-between border-b-2 border-b-neutral-500 text-blue-700">
+						<p className="text-primary-700 flex flex-row justify-between border-b-2 border-b-neutral-500">
 							ABOUT
 						</p>
 						<div className="flex flex-col space-y-0.5">
@@ -71,7 +71,7 @@ const DefaultNavigation = () => {
 						</div>
 					</section>
 					<section className="text-left">
-						<p className="flex flex-row justify-between border-b-2 border-b-neutral-500 text-blue-700">
+						<p className="text-primary-700 flex flex-row justify-between border-b-2 border-b-neutral-500">
 							CONTACT
 						</p>
 						<div className="flex flex-col space-y-0.5">
@@ -95,7 +95,8 @@ const DefaultNavigation = () => {
 						height={500}
 						width={300}
 						priority={true}
-						className="left-0"
+						placeholder="empty"
+						className="left-0 h-auto w-auto"
 					/>
 				</Link>
 				<button className="ml-auto p-1" onClick={toggleMenu}>
