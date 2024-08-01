@@ -1,0 +1,108 @@
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
+import { HiBars3, HiXMark } from 'react-icons/hi2';
+
+// Default Navigation Component
+
+const DefaultNavigation = () => {
+	const [showMenu, setShowMenu] = useState(false);
+	const toggleMenu = () => {
+		setShowMenu(!showMenu);
+	};
+
+	const MenuBar = () => {
+		return (
+			<div className="absolute right-0 top-8 border border-gray-500/50 bg-transparent/80 font-mono md:bg-transparent">
+				<HiXMark className="sticky m-2 ml-auto h-6 w-6" />
+				<div className="m-3 flex flex-col space-y-3 p-7">
+					<section className="text-left">
+						<p className="flex flex-row justify-between border-b-2 border-b-neutral-500 text-blue-700">
+							RESOURCES
+						</p>
+						<div className="flex flex-col">
+							<Link href="/support" className="hover:underline">
+								Support
+							</Link>
+							<Link href="/articles" className="hover:underline">
+								Knowledge Base
+							</Link>
+						</div>
+					</section>
+					<section className="text-left">
+						<p className="flex flex-row justify-between border-b-2 border-b-neutral-500 text-blue-700">
+							DOCS
+						</p>
+						<div className="flex flex-col space-y-0.5">
+							<Link
+								href="https://kralis-api.netrobase.dev/schema/swagger"
+								target="_blank"
+								className="hover:underline"
+							>
+								Kralis Rest API
+							</Link>
+							<Link
+								href="https://kralis-api.netrobase.dev/graphiql"
+								target="_blank"
+								className="hover:underline"
+							>
+								Kralis GraphiQL API
+							</Link>
+							<Link
+								href="https://kralis-docs.netrobase.dev/"
+								target="_blank"
+								className="hover:underline"
+							>
+								Kralis API Model
+							</Link>
+						</div>
+					</section>
+					<section className="text-left">
+						<p className="flex flex-row justify-between border-b-2 border-b-neutral-500 text-blue-700">
+							ABOUT
+						</p>
+						<div className="flex flex-col space-y-0.5">
+							<Link href="https://netrobase.com/about" target="_blank" className="hover:underline">
+								Company
+							</Link>
+							<Link href="/team" className="hover:underline">
+								Engineering Team
+							</Link>
+						</div>
+					</section>
+					<section className="text-left">
+						<p className="flex flex-row justify-between border-b-2 border-b-neutral-500 text-blue-700">
+							CONTACT
+						</p>
+						<div className="flex flex-col space-y-0.5">
+							<Link href="mailto:info@netrobase.dev" className="hover:underline">
+								info@netrobase.dev
+							</Link>
+						</div>
+					</section>
+				</div>
+			</div>
+		);
+	};
+
+	return (
+		<div className="">
+			<div className="sticky top-0 m-3 flex flex-row items-center text-black dark:text-white">
+				<Link href="/">
+					<Image
+						src="/images/netrobase-logo.png"
+						alt="LOGO"
+						width={100}
+						height={100}
+						className="left-0"
+					/>
+				</Link>
+				<button className="ml-auto p-1" onClick={toggleMenu}>
+					{!showMenu ? <HiBars3 className="h-6 w-6" /> : <MenuBar />}
+				</button>
+			</div>
+		</div>
+	);
+};
+
+export default DefaultNavigation;

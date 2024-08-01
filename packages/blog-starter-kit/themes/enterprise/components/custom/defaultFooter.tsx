@@ -1,34 +1,28 @@
 import Link from 'next/link';
-import { Container } from './container';
-import { useAppContext } from './contexts/appContext';
-import { SocialLinks } from './social-links';
 
 export const Footer = () => {
-	const { publication } = useAppContext();
-	const PUBLICATION_LOGO = publication.preferences.logo;
 	return (
-		<footer className="border-t py-20 dark:border-neutral-800 ">
-			<Container className="px-5">
-				{PUBLICATION_LOGO ? (
-					<div className="mb-20 flex w-full flex-row justify-center">
-						<Link
-							href={'/'}
-							aria-label={`${publication.title} Home Page`}
-							className="flex flex-row items-center gap-5"
-						>
-							<img className="block w-40" src={PUBLICATION_LOGO} alt={publication.title} />
-						</Link>
-					</div>
-				) : (
-					<p className="mb-20 text-center text-xl font-semibold text-slate-900 dark:text-slate-50 md:text-4xl">
-						{publication.title}
-					</p>
-				)}
+		<footer className="border-t py-5">
+			<div className="px-5">
+				<div className="flex w-full flex-row justify-center py-5">
+					<Link
+						href={'/'}
+						aria-label={`Netrobase Enginnering Home Page`}
+						className="flex flex-row items-center gap-5"
+					>
+						<img
+							className="block w-40"
+							src="/images/netrobase-engr-logo.png"
+							alt="Netrobase Engineering Logo"
+						/>
+					</Link>
+				</div>
+
 				<div className="flex flex-row justify-between">
 					<div className="grid grid-cols-2 gap-x-10 gap-y-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
 						<div className="flex flex-col items-start space-y-1 text-left">
-							<p className="font-bold text-slate-600 dark:text-neutral-200">Stay in touch</p>
-							<ul className="flex flex-col gap-1 text-slate-700 dark:text-neutral-300">
+							<p className="font-bold">Stay in touch</p>
+							<ul className="flex flex-col gap-1">
 								<li>
 									<Link
 										href="mailto:info@netrobase.dev?subject=I have a question about..."
@@ -45,8 +39,8 @@ export const Footer = () => {
 							</ul>
 						</div>
 						<div className="flex flex-col items-start space-y-1 text-left">
-							<p className="font-bold text-slate-600 dark:text-neutral-200">Company</p>
-							<ul className="spacey-1 flex flex-col text-slate-700 dark:text-neutral-300">
+							<p className="font-bold">Company</p>
+							<ul className="spacey-1 flex flex-col">
 								<li>
 									<Link
 										href="https://netrobase.com/careers"
@@ -68,8 +62,8 @@ export const Footer = () => {
 							</ul>
 						</div>
 						<div className="flex flex-col items-start space-y-1 text-left">
-							<p className="font-bold text-slate-600 dark:text-neutral-200">Docs</p>
-							<ul className="flex flex-col space-y-1 text-slate-700 dark:text-neutral-300">
+							<p className="font-bold">Docs</p>
+							<ul className="flex flex-col space-y-1">
 								<li>
 									<Link
 										href="https://kralis-docs.netrobase.dev"
@@ -100,8 +94,8 @@ export const Footer = () => {
 							</ul>
 						</div>
 						<div className="flex flex-col items-start space-y-1 text-left">
-							<p className="font-bold text-slate-600 dark:text-neutral-200">Resources</p>
-							<ul className="flex flex-col space-y-1 text-slate-700 dark:text-neutral-300">
+							<p className="font-bold">Resources</p>
+							<ul className="flex flex-col space-y-1">
 								<li>
 									<Link
 										href="https://kralis.netrobase.dev"
@@ -119,8 +113,8 @@ export const Footer = () => {
 							</ul>
 						</div>
 					</div>
-					<div className="flex flex-col items-end space-y-1 text-right text-slate-600 dark:text-neutral-300 md:text-left">
-						<SocialLinks />
+					<div className="flex flex-col items-end space-y-1 text-right md:text-left">
+						{/* <SocialLinks /> */}
 						<p>
 							&copy; {new Date().getFullYear()}{' '}
 							<Link href="https://netrobase.com" target="_black" className="hover:underline">
@@ -138,7 +132,9 @@ export const Footer = () => {
 						</p>
 					</div>
 				</div>
-			</Container>
+			</div>
 		</footer>
 	);
 };
+
+export default Footer;
