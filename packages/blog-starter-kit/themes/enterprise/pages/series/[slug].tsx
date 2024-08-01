@@ -1,3 +1,4 @@
+import { resizeImage } from '@starter-kit/utils/image';
 import request from 'graphql-request';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
@@ -53,16 +54,15 @@ export default function Post({ series, publication, posts }: Props) {
 						<div className="relative col-span-full md:col-span-2 lg:col-span-1">
 							<CoverImage
 								title={series.name}
-								src={series.coverImage || DEFAULT_COVER}
-								// src={resizeImage(
-								// 	series.coverImage,
-								// 	{
-								// 		w: 400,
-								// 		h: 210,
-								// 		c: 'thumb',
-								// 	},
-								// 	DEFAULT_COVER,
-								// )}
+								src={resizeImage(
+									series.coverImage,
+									{
+										w: 400,
+										h: 210,
+										c: 'thumb',
+									},
+									DEFAULT_COVER,
+								)}
 							/>
 						</div>
 					</div>
