@@ -13,7 +13,7 @@ const DefaultNavigation = () => {
 
 	const MenuBar = () => {
 		return (
-			<div className="absolute right-0 top-8 border border-gray-500/50 bg-white font-mono">
+			<div className="absolute right-0 top-8 border border-gray-500/50 bg-white">
 				<HiXMark className="sticky m-2 ml-auto h-6 w-6" />
 				<div className="m-3 flex flex-col space-y-3 p-7">
 					<section className="text-left">
@@ -86,8 +86,8 @@ const DefaultNavigation = () => {
 	};
 
 	return (
-		<div className="fixed left-0 right-0 top-0 bg-white">
-			<div className="sticky top-0 m-3 flex flex-row items-center text-black dark:text-white">
+		<div className="fixed left-0 right-0 top-0 bg-white text-black dark:text-white">
+			<div className="sticky top-0 m-3 flex flex-row items-center">
 				<Link href="/">
 					<Image
 						src="/images/netrobase-engr-logo.png"

@@ -10,9 +10,7 @@ export default function Team() {
 			<div className="m-2 flex flex-col space-y-40 p-2">
 				<DefaultNavigation />
 				<main className="m-2 flex h-screen flex-col items-center space-y-10">
-					<h1 className="text-center font-mono text-4xl underline underline-offset-4">
-						Engineering Team
-					</h1>
+					<h1 className="text-center text-4xl underline underline-offset-4">Engineering Team</h1>
 					<section className="flex flex-row items-center">
 						<div className="grid grid-cols-2 gap-5 lg:grid-cols-3">
 							{/* Team members */}

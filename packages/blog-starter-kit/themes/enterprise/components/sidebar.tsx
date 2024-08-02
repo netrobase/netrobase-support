@@ -65,7 +65,7 @@ function PublicationSidebar(props: Props) {
 
 					<div className="py-10 pl-8 pr-4">
 						<h2 className="mb-4 text-sm font-semibold uppercase text-slate-500 dark:text-slate-400">
-							Blog menu
+							Menu
 						</h2>
 						<section className="mb-10">
 							<ul className="flex flex-col gap-2 text-slate-700 dark:text-white">
@@ -75,6 +75,14 @@ function PublicationSidebar(props: Props) {
 										className="transition-200 block truncate text-ellipsis whitespace-nowrap rounded p-2 px-3 transition-colors hover:bg-slate-100 hover:text-black dark:hover:bg-neutral-800 dark:hover:text-white"
 									>
 										Home
+									</Link>
+								</li>
+								<li>
+									<Link
+										href="/support"
+										className="transition-200 block truncate text-ellipsis whitespace-nowrap rounded p-2 px-3 transition-colors hover:bg-slate-100 hover:text-black dark:hover:bg-neutral-800 dark:hover:text-white"
+									>
+										Support
 									</Link>
 								</li>
 								{navbarItems.map((item) => (
@@ -92,7 +100,7 @@ function PublicationSidebar(props: Props) {
 
 						{hasSocialLinks && (
 							<h2 className="mb-4 text-sm font-semibold uppercase leading-6 text-slate-500 dark:text-slate-400">
-								Blog socials
+								Socials
 							</h2>
 						)}
 						<SocialLinks isSidebar />

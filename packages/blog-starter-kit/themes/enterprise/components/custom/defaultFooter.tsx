@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import DefaultSocialLinks from './defaultSocials';
 
 export const Footer = () => {
 	return (
@@ -122,7 +123,7 @@ export const Footer = () => {
 						</div>
 					</div>
 					<div className="flex flex-col items-end space-y-1 text-right md:text-left">
-						{/* SocialLinks Here */}
+						<DefaultSocialLinks />
 						<p>
 							&copy; {new Date().getFullYear()}{' '}
 							<Link href="https://netrobase.com" target="_black" className="hover:underline">
