@@ -17,7 +17,7 @@ export default function Team() {
 				<main className="m-2 flex h-screen flex-col items-center space-y-10">
 					<h1 className="text-center text-4xl underline underline-offset-4">Engineering Team</h1>
 					<section className="flex flex-row items-center">
-						<div className="grid grid-cols-2 gap-5 lg:grid-cols-3">
+						<div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
 							{/* Team members */}
 							<div className="flex flex-col items-center space-y-2 rounded-md border p-5">
 								<Image
