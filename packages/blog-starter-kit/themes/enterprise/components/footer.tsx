@@ -49,11 +49,11 @@ export const Footer = () => {
 							<ul className="spacey-1 flex flex-col text-slate-700 dark:text-neutral-300">
 								<li>
 									<Link
-										href="https://netrobase.com/careers"
+										href="https://netrobase.com/career"
 										target="_blank"
 										className="hover:underline"
 									>
-										Careers
+										Career
 									</Link>
 								</li>
 								<li>
@@ -63,6 +63,11 @@ export const Footer = () => {
 										className="hover:underline"
 									>
 										About
+									</Link>
+								</li>
+								<li>
+									<Link href="/team" className="hover:underline">
+										Dev Team
 									</Link>
 								</li>
 							</ul>
@@ -81,7 +86,7 @@ export const Footer = () => {
 								</li>
 								<li>
 									<Link
-										href="https://kralis-docs.netrobase.dev/schema/swagger"
+										href="https://kralis-api.netrobase.dev/schema/swagger"
 										target="_blank"
 										className="hover:underline"
 									>
@@ -90,7 +95,7 @@ export const Footer = () => {
 								</li>
 								<li>
 									<Link
-										href="https://roxa-api.netrobase.dev/graphiql"
+										href="https://kralis-api.netrobase.dev/graphiql"
 										target="_blank"
 										className="hover:underline"
 									>
@@ -112,7 +117,7 @@ export const Footer = () => {
 									</Link>
 								</li>
 								<li>
-									<Link href="/articles" target="_blank" className="hover:underline">
+									<Link href="/articles" className="hover:underline">
 										Knowledge Base
 									</Link>
 								</li>
