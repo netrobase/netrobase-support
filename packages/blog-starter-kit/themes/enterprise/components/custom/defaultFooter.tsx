@@ -126,7 +126,11 @@ export const Footer = () => {
 						<DefaultSocialLinks />
 						<p>
 							&copy; {new Date().getFullYear()}{' '}
-							<Link href="https://netrobase.com" target="_black" className="hover:underline">
+							<Link
+								href="https://netrobase.com"
+								target="_black"
+								className="underline-offset-4 hover:underline"
+							>
 								Netrobase Limited
 							</Link>
 						</p>

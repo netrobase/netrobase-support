@@ -122,7 +122,10 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 				<Header />
 				<Container className="flex flex-col items-stretch space-y-20 px-5 py-10 pb-10">
 					<div className="flex flex-col items-center space-y-5">
-						<p className="p-2 text-center text-2xl font-bold">Welcome to Netrobase Help Center!</p>
+						<p className="p-2 text-center text-2xl font-semibold">
+							Welcome to Netrobase
+							<br className="lg:hidden" /> Help Center!
+						</p>
 						<span className="w-full lg:w-1/2">
 							<Search />
 						</span>
@@ -147,7 +150,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 							<span className="flex flex-col items-center">
 								<Link
 									href="/articles"
-									className="rounded-lg border border-blue-700 p-4 text-center text-xl font-bold hover:bg-blue-700 hover:text-white"
+									className="rounded-lg border border-blue-700 p-4 text-center text-xl hover:bg-blue-700 hover:text-white"
 								>
 									Explore More Articles
 								</Link>

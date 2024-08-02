@@ -5,6 +5,7 @@ import { PublicationNavbarItem } from '../generated/graphql';
 import { Button } from './button';
 import { Container } from './container';
 import { useAppContext } from './contexts/appContext';
+import { newRocker } from './custom/defaultLayout';
 import HamburgerSVG from './icons/svgs/HamburgerSVG';
 import { PublicationLogo } from './publication-logo';
 import PublicationSidebar from './sidebar';
@@ -59,7 +60,7 @@ export const Header = () => {
 
 						<DropdownMenu.Portal>
 							<DropdownMenu.Content
-								className="w-48 rounded border border-gray-300 bg-white text-neutral-950 shadow-md dark:border-neutral-800 dark:bg-neutral-900 dark:text-white"
+								className={`${newRocker.className} w-48 rounded border border-gray-300 bg-white text-neutral-950 shadow-md dark:border-neutral-800 dark:bg-neutral-900 dark:text-white`}
 								align="end"
 								sideOffset={5}
 							>

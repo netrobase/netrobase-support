@@ -3,7 +3,7 @@ import { type PropsWithChildren } from 'react';
 import { Scripts } from '../scripts';
 import DefaultMeta from './defaultMeta';
 
-const newRocker = New_Rocker({
+export const newRocker = New_Rocker({
 	subsets: ['latin'],
 	weight: '400',
 	style: 'normal',
