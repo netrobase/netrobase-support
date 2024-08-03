@@ -1,13 +1,15 @@
 import Link from 'next/link';
 import { Container } from './container';
 import { useAppContext } from './contexts/appContext';
+import { LeftFooterSVG, RightFooterSVG } from './custom/footerSVG';
 import { SocialLinks } from './social-links';
 
 export const Footer = () => {
 	const { publication } = useAppContext();
 	const PUBLICATION_LOGO = publication.preferences.logo;
 	return (
-		<footer className="border-t py-20 dark:border-neutral-800 ">
+		<footer className="z-10 border-t py-20 dark:border-neutral-800">
+			<LeftFooterSVG />
 			<Container className="px-5">
 				{PUBLICATION_LOGO ? (
 					<div className="mb-20 flex w-full flex-row justify-center">
@@ -25,7 +27,7 @@ export const Footer = () => {
 					</p>
 				)}
 				<div className="flex flex-row justify-between">
-					<div className="grid grid-cols-1 gap-x-10 gap-y-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
+					<div className="z-10 grid grid-cols-1 gap-x-10 gap-y-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
 						<div className="flex flex-col items-start space-y-1 text-left">
 							<p className="font-bold text-slate-600 dark:text-neutral-200">Stay in touch</p>
 							<ul className="flex flex-col gap-1 text-slate-700 dark:text-neutral-300">
@@ -133,7 +135,7 @@ export const Footer = () => {
 							</ul>
 						</div>
 					</div>
-					<div className="flex flex-col items-end space-y-1 text-right text-slate-600 md:text-left dark:text-neutral-300">
+					<div className="z-10 flex flex-col items-end space-y-1 text-right text-slate-600 md:text-left dark:text-neutral-300">
 						<SocialLinks />
 						<p>
 							&copy; {new Date().getFullYear()}{' '}
@@ -155,6 +157,7 @@ export const Footer = () => {
 							</Link>
 						</p>
 					</div>
+					<RightFooterSVG />
 				</div>
 			</Container>
 		</footer>

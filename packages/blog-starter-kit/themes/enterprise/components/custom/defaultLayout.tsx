@@ -1,9 +1,7 @@
 import { New_Rocker } from 'next/font/google';
 import { type PropsWithChildren } from 'react';
 import { Scripts } from '../scripts';
-import DefaultFooter from './defaultFooter';
 import DefaultMeta from './defaultMeta';
-import DefaultNavigation from './defaultNavigation';
 
 export const newRocker = New_Rocker({
 	subsets: ['latin'],
@@ -19,11 +17,9 @@ export const DefaultLayout = ({ children }: PropsWithChildren) => {
 			<DefaultMeta />
 			<Scripts />
 			<div
-				className={`${newRocker.className} min-h-screen bg-white p-4 text-black  dark:bg-current dark:text-white`}
+				className={`${newRocker.className} m-2 min-h-screen overflow-hidden bg-white p-2 text-black dark:bg-current dark:text-white`}
 			>
-				<DefaultNavigation />
-				<main>{children}</main>
-				<DefaultFooter />
+				{children}
 			</div>
 		</>
 	);

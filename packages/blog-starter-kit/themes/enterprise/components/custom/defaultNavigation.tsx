@@ -3,9 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { HiBars3, HiXMark } from 'react-icons/hi2';
 
-// Default Navigation Component
-
-const DefaultNavigation = () => {
+const DefaultNavigation = ({ hasTopStatusBar }: { hasTopStatusBar?: boolean }) => {
 	const [showMenu, setShowMenu] = useState(false);
 	const toggleMenu = () => {
 		setShowMenu(!showMenu);
@@ -13,13 +11,31 @@ const DefaultNavigation = () => {
 
 	const MenuBar = () => {
 		return (
-			<div className="absolute right-5 top-11 border border-gray-500/50 bg-white">
+			<div
+				className={`absolute ${hasTopStatusBar ? 'top-20' : 'top-11'} right-5 border border-gray-500/50 bg-white`}
+			>
 				<HiXMark className="m-2 ml-auto h-6 w-6" />
 				<div className="m-3 flex flex-col space-y-3 px-6 py-3">
 					<section className="text-left">
-						<p className="text-primary-700 flex flex-row justify-between border-b-2 border-b-neutral-500">
-							RESOURCES
-						</p>
+						<p className="text-primary-700 flex flex-row border-b-2 border-b-blue-700">ABOUT</p>
+						<div className="flex flex-col space-y-0.5">
+							<Link href="https://netrobase.com/about" target="_blank" className="hover:underline">
+								Company
+							</Link>
+							<Link
+								href="https://netrobase.com/careers"
+								target="_blank"
+								className="hover:underline"
+							>
+								Careers
+							</Link>
+							<Link href="/team" className="hover:underline">
+								Engineering Team
+							</Link>
+						</div>
+					</section>
+					<section className="text-left">
+						<p className="text-primary-700 flex flex-row border-b-2 border-b-blue-700">RESOURCES</p>
 						<div className="flex flex-col">
 							<Link href="/support" className="hover:underline">
 								Support
@@ -33,9 +49,7 @@ const DefaultNavigation = () => {
 						</div>
 					</section>
 					<section className="text-left">
-						<p className="text-primary-700 flex flex-row justify-between border-b-2 border-b-neutral-500">
-							DOCS
-						</p>
+						<p className="text-primary-700 flex flex-row border-b-2 border-b-blue-700">DOCS</p>
 						<div className="flex flex-col space-y-0.5">
 							<Link
 								href="https://kralis-api.netrobase.dev/schema/swagger"
@@ -61,29 +75,7 @@ const DefaultNavigation = () => {
 						</div>
 					</section>
 					<section className="text-left">
-						<p className="text-primary-700 flex flex-row justify-between border-b-2 border-b-neutral-500">
-							ABOUT
-						</p>
-						<div className="flex flex-col space-y-0.5">
-							<Link href="https://netrobase.com/about" target="_blank" className="hover:underline">
-								Company
-							</Link>
-							<Link
-								href="https://netrobase.com/careers"
-								target="_blank"
-								className="hover:underline"
-							>
-								Careers
-							</Link>
-							<Link href="/team" className="hover:underline">
-								Engineering Team
-							</Link>
-						</div>
-					</section>
-					<section className="text-left">
-						<p className="text-primary-700 flex flex-row justify-between border-b-2 border-b-neutral-500">
-							CONTACT
-						</p>
+						<p className="text-primary-700 flex flex-row border-b-2 border-b-blue-700">CONTACT</p>
 						<div className="flex flex-col space-y-0.5">
 							<Link href="mailto:info@netrobase.dev" className="hover:underline">
 								info@netrobase.dev
