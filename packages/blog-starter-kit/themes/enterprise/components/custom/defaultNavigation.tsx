@@ -65,6 +65,13 @@ const DefaultNavigation = () => {
 							<Link href="https://netrobase.com/about" target="_blank" className="hover:underline">
 								Company
 							</Link>
+							<Link
+								href="https://netrobase.com/careers"
+								target="_blank"
+								className="hover:underline"
+							>
+								Careers
+							</Link>
 							<Link href="/team" className="hover:underline">
 								Engineering Team
 							</Link>

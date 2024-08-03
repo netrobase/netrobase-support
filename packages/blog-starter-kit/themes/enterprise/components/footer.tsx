@@ -49,11 +49,11 @@ export const Footer = () => {
 							<ul className="spacey-1 flex flex-col text-slate-700 dark:text-neutral-300">
 								<li>
 									<Link
-										href="https://netrobase.com/career"
+										href="https://netrobase.com/careers"
 										target="_blank"
 										className="hover:underline"
 									>
-										Career
+										Careers
 									</Link>
 								</li>
 								<li>

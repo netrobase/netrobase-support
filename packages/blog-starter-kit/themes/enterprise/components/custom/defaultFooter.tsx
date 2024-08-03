@@ -4,7 +4,7 @@ import DefaultSocialLinks from './defaultSocials';
 
 export const Footer = () => {
 	return (
-		<footer className="border-t py-5">
+		<footer className="bottom-0 border-t py-5">
 			<div className="flex flex-col space-y-5">
 				<Link
 					href={'/'}
@@ -47,11 +47,11 @@ export const Footer = () => {
 							<ul className="spacey-1 flex flex-col">
 								<li>
 									<Link
-										href="https://netrobase.com/career"
+										href="https://netrobase.com/careers"
 										target="_blank"
 										className="hover:underline"
 									>
-										Career
+										Careers
 									</Link>
 								</li>
 								<li>
