@@ -5,14 +5,14 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Container } from '../components/container';
-import { AppProvider } from '../components/contexts/appContext';
-import { Footer } from '../components/footer';
-import { Header } from '../components/header';
-import { Layout } from '../components/layout';
-import { MarkdownToHtml } from '../components/markdown-to-html';
-import { PostHeader } from '../components/post-header';
-import { PostTOC } from '../components/post-toc';
+import { Container } from '../../components/container';
+import { AppProvider } from '../../components/contexts/appContext';
+import { Footer } from '../../components/footer';
+import { Header } from '../../components/header';
+import { Layout } from '../../components/layout';
+import { MarkdownToHtml } from '../../components/markdown-to-html';
+import { PostHeader } from '../../components/post-header';
+import { PostTOC } from '../../components/post-toc';
 import {
 	PageByPublicationDocument,
 	PostFullFragment,
@@ -20,7 +20,7 @@ import {
 	SinglePostByPublicationDocument,
 	SlugPostsByPublicationDocument,
 	StaticPageFragment,
-} from '../generated/graphql';
+} from '../../generated/graphql';
 // @ts-ignore
 import handleMathJax from '@starter-kit/utils/handle-math-jax';
 import { useEmbeds } from '@starter-kit/utils/renderer/hooks/useEmbeds';
@@ -29,10 +29,10 @@ import { useEffect, useState } from 'react';
 // @ts-ignore
 import { triggerCustomWidgetEmbed } from '@starter-kit/utils/trigger-custom-widget-embed';
 
-const AboutAuthor = dynamic(() => import('../components/about-author'), { ssr: false });
-const Subscribe = dynamic(() => import('../components/subscribe').then((mod) => mod.Subscribe));
+const AboutAuthor = dynamic(() => import('../../components/about-author'), { ssr: false });
+const Subscribe = dynamic(() => import('../../components/subscribe').then((mod) => mod.Subscribe));
 const PostComments = dynamic(() =>
-	import('../components/post-comments').then((mod) => mod.PostComments),
+	import('../../components/post-comments').then((mod) => mod.PostComments),
 );
 
 type PostProps = {
@@ -57,7 +57,7 @@ const Post = ({ publication, post }: PostProps) => {
 		<li key={tag.id}>
 			<Link
 				href={`/tag/${tag.slug}`}
-				className="block rounded-full border px-2 py-1 font-medium hover:bg-slate-50 dark:border-neutral-800 dark:hover:bg-neutral-800 md:px-4"
+				className="block rounded-full border px-2 py-1 font-medium hover:bg-slate-50 md:px-4 dark:border-neutral-800 dark:hover:bg-neutral-800"
 			>
 				#{tag.slug}
 			</Link>
@@ -133,10 +133,11 @@ const Post = ({ publication, post }: PostProps) => {
 				author={post.author}
 				readTimeInMinutes={post.readTimeInMinutes}
 			/>
-			{post.features.tableOfContents.isEnabled && post.features?.tableOfContents?.items?.length > 0 && <PostTOC />}
+			{post.features.tableOfContents.isEnabled &&
+				post.features?.tableOfContents?.items?.length > 0 && <PostTOC />}
 			<MarkdownToHtml contentMarkdown={post.content.markdown} />
 			{(post.tags ?? []).length > 0 && (
-				<div className="mx-auto w-full px-5 text-slate-600 dark:text-neutral-300 md:max-w-screen-md">
+				<div className="mx-auto w-full px-5 text-slate-600 md:max-w-screen-md dark:text-neutral-300">
 					<ul className="flex flex-row flex-wrap items-center gap-2">{tagsList}</ul>
 				</div>
 			)}

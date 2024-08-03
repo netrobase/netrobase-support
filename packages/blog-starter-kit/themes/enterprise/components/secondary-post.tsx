@@ -13,7 +13,7 @@ type Props = {
 };
 
 export const SecondaryPost = ({ title, coverImage, date, excerpt, slug }: Props) => {
-	const postURL = `/${slug}`;
+	const postURL = `/articles/${slug}`;
 
 	return (
 		<section className="grid items-start gap-5 md:grid-cols-2">

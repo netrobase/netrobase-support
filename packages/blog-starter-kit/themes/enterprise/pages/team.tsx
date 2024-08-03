@@ -14,7 +14,7 @@ export default function Team() {
 		<DefaultLayout>
 			<div className="m-2 flex flex-col space-y-28 p-2">
 				<DefaultNavigation />
-				<main className="m-2 flex h-screen flex-col items-center space-y-10">
+				<main className="m-2 flex h-screen flex-col items-center space-y-10 p-2">
 					<h1 className="text-center text-4xl underline underline-offset-4">Engineering Team</h1>
 					<section className="flex flex-row items-center">
 						<div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
