@@ -6,8 +6,8 @@ import { BottomHeroSVG, TopHeroSVG } from '../components/custom/heroSVG';
 
 export default function Home() {
 	return (
-		<div>
-			<div className="flex flex-col items-center justify-center bg-black">
+		<>
+			<div className="grid grid-cols-5 bg-black lg:grid-cols-7">
 				<iframe
 					src="https://status.netrobase.dev/badge?theme=dark"
 					loading="lazy"
@@ -16,7 +16,7 @@ export default function Home() {
 					frameBorder="0"
 					scrolling="no"
 					style={{ colorScheme: 'none' }}
-					className="z-10"
+					className="z-10 col-start-3 lg:col-start-4"
 				></iframe>
 			</div>
 			<DefaultLayout>
@@ -44,6 +44,6 @@ export default function Home() {
 				</main>
 				<DefaultFooter />
 			</DefaultLayout>
-		</div>
+		</>
 	);
 }
