@@ -1,19 +1,16 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaDribbble, FaInstagram, FaXTwitter } from 'react-icons/fa6';
 import { SiGithub } from 'react-icons/si';
 import { SlSocialLinkedin } from 'react-icons/sl';
-import Footer from '../components/custom/defaultFooter';
 import DefaultLayout from '../components/custom/defaultLayout';
-import DefaultNavigation from '../components/custom/defaultNavigation';
+import { TeamSVG } from '../components/custom/teamSVG';
 
 export default function Team() {
 	return (
 		<DefaultLayout>
+			<TeamSVG />
 			<div className="m-2 flex flex-col space-y-28 p-2">
-				<DefaultNavigation />
 				<main className="m-2 flex flex-col items-center space-y-10 p-2">
 					<h1 className="text-center text-4xl underline underline-offset-4">Engineering Team</h1>
 					<section className="flex flex-row items-center">
@@ -94,7 +91,6 @@ export default function Team() {
 						</div>
 					</section>
 				</main>
-				<Footer />
 			</div>
 		</DefaultLayout>
 	);

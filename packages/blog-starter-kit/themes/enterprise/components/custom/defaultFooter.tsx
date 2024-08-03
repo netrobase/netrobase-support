@@ -1,28 +1,29 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import DefaultSocialLinks from './defaultSocials';
+import { LeftFooterSVG, RightFooterSVG } from './footerSVG';
 
 export const Footer = () => {
 	return (
-		<footer className="border-t py-5">
+		<footer className="bottom-0 flex flex-col space-y-5 border-t py-5">
+			<LeftFooterSVG />
+			<Link
+				href={'/'}
+				aria-label={`Netrobase Enginnering Home Page`}
+				className="z-10 flex flex-row items-center justify-center"
+			>
+				<Image
+					src="/images/netrobase-engr-logo.png"
+					alt="Netrobase Engineering Logo"
+					height={500}
+					width={300}
+					priority={true}
+					placeholder="empty"
+					className="h-auto w-auto"
+				/>
+			</Link>
 			<div className="flex flex-col space-y-5">
-				<Link
-					href={'/'}
-					aria-label={`Netrobase Enginnering Home Page`}
-					className="flex flex-row items-center justify-center"
-				>
-					<Image
-						src="/images/netrobase-engr-logo.png"
-						alt="Netrobase Engineering Logo"
-						height={500}
-						width={300}
-						priority={true}
-						placeholder="empty"
-						className="h-auto w-auto"
-					/>
-				</Link>
-
-				<div className="flex flex-row justify-between">
+				<div className="z-10 flex flex-row justify-between">
 					<div className="grid grid-cols-1 gap-x-10 gap-y-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
 						<div className="flex flex-col items-start space-y-1 text-left">
 							<p className="font-bold">Stay in touch</p>
@@ -154,6 +155,7 @@ export const Footer = () => {
 						</p>
 					</div>
 				</div>
+				<RightFooterSVG />
 			</div>
 		</footer>
 	);
