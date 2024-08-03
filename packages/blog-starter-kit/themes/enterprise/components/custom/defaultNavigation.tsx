@@ -15,7 +15,7 @@ const DefaultNavigation = () => {
 		return (
 			<div className="absolute right-0 top-8 border border-gray-500/50 bg-white">
 				<HiXMark className="sticky m-2 ml-auto h-6 w-6" />
-				<div className="m-3 flex flex-col space-y-3 p-7">
+				<div className="m-3 flex flex-col space-y-3 px-6 py-3">
 					<section className="text-left">
 						<p className="text-primary-700 flex flex-row justify-between border-b-2 border-b-neutral-500">
 							RESOURCES
@@ -26,6 +26,9 @@ const DefaultNavigation = () => {
 							</Link>
 							<Link href="/articles" className="hover:underline">
 								Knowledge Base
+							</Link>
+							<Link href="https://status.netrobase.dev" target="_blank" className="hover:underline">
+								Status Page
 							</Link>
 						</div>
 					</section>
