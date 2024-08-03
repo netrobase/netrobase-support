@@ -121,6 +121,15 @@ export const Footer = () => {
 										Knowledge Base
 									</Link>
 								</li>
+								<li>
+									<Link
+										href="https://status.netrobase.dev"
+										target="_blank"
+										className="hover:underline"
+									>
+										Status Page
+									</Link>
+								</li>
 							</ul>
 						</div>
 					</div>
