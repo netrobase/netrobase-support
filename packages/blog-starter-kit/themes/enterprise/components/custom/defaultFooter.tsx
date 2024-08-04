@@ -76,7 +76,7 @@ export const Footer = () => {
 							<ul className="flex flex-col space-y-1">
 								<li>
 									<Link
-										href="https://kralis-docs.netrobase.dev"
+										href="https://kralis-docs.netrobase.dev/tenets"
 										target="_blank"
 										className="hover:underline"
 									>

@@ -66,7 +66,7 @@ const DefaultNavigation = ({ hasTopStatusBar }: { hasTopStatusBar?: boolean }) =
 								Kralis GraphiQL API
 							</Link>
 							<Link
-								href="https://kralis-docs.netrobase.dev/"
+								href="https://kralis-docs.netrobase.dev/tenets"
 								target="_blank"
 								className="hover:underline"
 							>
