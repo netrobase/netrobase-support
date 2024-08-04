@@ -39,7 +39,7 @@ function PublicationSidebar(props: Props) {
 					onPointerDownOutside={() => {
 						toggleSidebar();
 					}}
-					className={`${newRocker.className} ${
+					className={`${newRocker.className} overflow-y-scroll ${
 						// When the sheet is mounted, we want to slide it in from the left.
 						!isMounted ? '-translate-x-96' : 'translate-x-0'
 					} fixed bottom-0 left-0 top-0 z-50 flex w-80 transform flex-col bg-white shadow-2xl duration-300 ease-out dark:border-neutral-800 dark:bg-neutral-950`}
