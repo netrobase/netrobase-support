@@ -85,7 +85,7 @@ export const Footer = () => {
 								</li>
 								<li>
 									<Link
-										href="https://demo-api.kralis.app/schema/swagger"
+										href="https://live-api.kralis.app/schema/swagger"
 										target="_blank"
 										className="hover:underline"
 									>
@@ -94,7 +94,7 @@ export const Footer = () => {
 								</li>
 								<li>
 									<Link
-										href="https://demo-api.kralis.app/graphiql"
+										href="https://live-api.kralis.app/graphiql"
 										target="_blank"
 										className="hover:underline"
 									>
