@@ -76,7 +76,7 @@ export const Footer = () => {
 							<ul className="flex flex-col space-y-1">
 								<li>
 									<Link
-										href="https://kralis-docs.netrobase.dev/tenets"
+										href="https://docs.kralis.app/tenets"
 										target="_blank"
 										className="hover:underline"
 									>
@@ -85,7 +85,7 @@ export const Footer = () => {
 								</li>
 								<li>
 									<Link
-										href="https://kralis-api.netrobase.dev/schema/swagger"
+										href="https://demo-api.kralis.app/schema/swagger"
 										target="_blank"
 										className="hover:underline"
 									>
@@ -94,11 +94,16 @@ export const Footer = () => {
 								</li>
 								<li>
 									<Link
-										href="https://kralis-api.netrobase.dev/graphiql"
+										href="https://demo-api.kralis.app/graphiql"
 										target="_blank"
 										className="hover:underline"
 									>
 										Kralis GraphiQL API
+									</Link>
+								</li>
+								<li>
+									<Link href="https://api.kralis.app" target="_blank" className="hover:underline">
+										Kralis Middleware
 									</Link>
 								</li>
 							</ul>
@@ -107,11 +112,7 @@ export const Footer = () => {
 							<p className="font-bold">Resources</p>
 							<ul className="flex flex-col space-y-1">
 								<li>
-									<Link
-										href="https://kralis.netrobase.dev"
-										target="_blank"
-										className="hover:underline"
-									>
+									<Link href="https://kralis.app" target="_blank" className="hover:underline">
 										Kralis App
 									</Link>
 								</li>

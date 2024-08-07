@@ -52,25 +52,28 @@ const DefaultNavigation = ({ hasTopStatusBar }: { hasTopStatusBar?: boolean }) =
 						<p className="text-primary-700 flex flex-row border-b-2 border-b-blue-700">DOCS</p>
 						<div className="flex flex-col space-y-0.5">
 							<Link
-								href="https://kralis-api.netrobase.dev/schema/swagger"
+								href="https://demo-api.krali.app/schema/swagger"
 								target="_blank"
 								className="hover:underline"
 							>
 								Kralis Rest API
 							</Link>
 							<Link
-								href="https://kralis-api.netrobase.dev/graphiql"
+								href="https://demo-api.kralis.app/graphiql"
 								target="_blank"
 								className="hover:underline"
 							>
 								Kralis GraphiQL API
 							</Link>
 							<Link
-								href="https://kralis-docs.netrobase.dev/tenets"
+								href="https://docs.kralis.app/tenets"
 								target="_blank"
 								className="hover:underline"
 							>
 								Kralis API Model
+							</Link>
+							<Link href="https://api.kralis.app" target="_blank" className="hover:underline">
+								Kralis Middleware
 							</Link>
 						</div>
 					</section>
