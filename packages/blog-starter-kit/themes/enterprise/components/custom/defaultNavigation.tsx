@@ -52,7 +52,7 @@ const DefaultNavigation = ({ hasTopStatusBar }: { hasTopStatusBar?: boolean }) =
 						<p className="text-primary-700 flex flex-row border-b-2 border-b-blue-700">DOCS</p>
 						<div className="flex flex-col space-y-0.5">
 							<Link
-								href="https://api.krali.app/schema/swagger"
+								href="https://api.kralis.app/schema/swagger"
 								target="_blank"
 								className="hover:underline"
 							>
