@@ -105,7 +105,11 @@ export const Footer = () => {
 									</Link>
 								</li>
 								<li>
-									<Link href="https://api.kralis.app" target="_blank" className="hover:underline">
+									<Link
+										href="https://middleware.kralis.app"
+										target="_blank"
+										className="hover:underline"
+									>
 										Kralis Middleware
 									</Link>
 								</li>

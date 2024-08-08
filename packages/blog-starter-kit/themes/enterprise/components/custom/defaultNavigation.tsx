@@ -72,7 +72,11 @@ const DefaultNavigation = ({ hasTopStatusBar }: { hasTopStatusBar?: boolean }) =
 							>
 								Kralis API Model
 							</Link>
-							<Link href="https://api.kralis.app" target="_blank" className="hover:underline">
+							<Link
+								href="https://middleware.kralis.app"
+								target="_blank"
+								className="hover:underline"
+							>
 								Kralis Middleware
 							</Link>
 						</div>
