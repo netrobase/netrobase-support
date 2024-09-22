@@ -103,17 +103,6 @@ export type AddDocumentationProjectCustomDomainPayload = {
   wwwRedirectDnsVerificationEntries: Array<DnsVerificationEntry>;
 };
 
-export type AddDocumentationProjectMemberInput = {
-  projectId: Scalars['ID']['input'];
-  userId: Scalars['ID']['input'];
-};
-
-export type AddDocumentationProjectMemberPayload = {
-  __typename?: 'AddDocumentationProjectMemberPayload';
-  member?: Maybe<DocumentationProjectMember>;
-  project?: Maybe<DocumentationProject>;
-};
-
 export type AddPostToSeriesInput = {
   /** The ID of the post to be added to the series. */
   postId: Scalars['ObjectId']['input'];
@@ -940,6 +929,8 @@ export type CreateDocumentationPageDraftInput = {
   label?: InputMaybe<Scalars['String']['input']>;
   parentId?: InputMaybe<Scalars['ID']['input']>;
   projectId: Scalars['ID']['input'];
+  /** The slug of the path used to generate the path. */
+  slug?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -947,6 +938,28 @@ export type CreateDocumentationPageDraftPayload = {
   __typename?: 'CreateDocumentationPageDraftPayload';
   guide?: Maybe<DocumentationGuide>;
   page?: Maybe<DocumentationPage>;
+};
+
+/** The input for creating a documentation preview page */
+export type CreateDocumentationPreviewPageInput = {
+  /** The content of the page */
+  content?: InputMaybe<Scalars['String']['input']>;
+  /** The description of the page */
+  description?: InputMaybe<Scalars['String']['input']>;
+  /** The ID of the page to create */
+  id?: InputMaybe<Scalars['ID']['input']>;
+  /** The label of the page on the sidebar */
+  label: Scalars['String']['input'];
+  /** The meta tags of the page */
+  metaTags?: InputMaybe<MetaTagsInput>;
+  /** The nested pages of the page */
+  pages: Array<CreateDocumentationPreviewPageInput>;
+  /** The slug of the page used to create the path */
+  slug?: InputMaybe<Scalars['String']['input']>;
+  /** The title of the page */
+  title?: InputMaybe<Scalars['String']['input']>;
+  /** The visibility of the page */
+  visibility?: InputMaybe<DocumentationSidebarItemVisibility>;
 };
 
 export type CreateDocumentationProjectInput = {
@@ -969,6 +982,8 @@ export type CreateDocumentationSectionInput = {
   guideSlug: Scalars['String']['input'];
   label?: InputMaybe<Scalars['String']['input']>;
   projectId: Scalars['ID']['input'];
+  /** The slug of the section used to generate the path. */
+  slug?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type CreateDocumentationSectionPayload = {
@@ -1197,6 +1212,18 @@ export enum DeviceType {
   Tablet = 'TABLET'
 }
 
+/** The input for disabling AI search for a documentation project */
+export type DisableDocumentationProjectAiSearchInput = {
+  /** The ID of the documentation project */
+  projectId: Scalars['ID']['input'];
+};
+
+/** The response to disabling AI search for a documentation project */
+export type DisableDocumentationProjectAiSearchPayload = {
+  __typename?: 'DisableDocumentationProjectAISearchPayload';
+  project?: Maybe<DocumentationProject>;
+};
+
 export type DisableDocumentationProjectHeadlessCmsInput = {
   projectId: Scalars['ID']['input'];
 };
@@ -1231,6 +1258,30 @@ export enum DocsAnalyticsDimension {
   ReferrerHost = 'REFERRER_HOST'
 }
 
+/**
+ * Contains basic information about the docs custom page.
+ * Docs custom pages are pages that can be written in mdx and can be added to docs. It can be used for changelog or other such requirements.
+ */
+export type DocsCustomPage = Node & {
+  __typename?: 'DocsCustomPage';
+  /** Content of the docs custom page. Contains mdx version of the docs custom page's content. */
+  content: DocumentationPageContent;
+  /** The ID of the docs custom page. */
+  id: Scalars['ID']['output'];
+  /** Last modified date of the docs custom page. */
+  lastModified: Scalars['DateTime']['output'];
+  /** Information about the docs custom page's Open Graph metadata i.e. image. */
+  ogMetaData?: Maybe<OpenGraphMetaData>;
+  /** Information about the docs custom page's SEO metadata i.e. title and description */
+  seo?: Maybe<Seo>;
+  /** the slug of the docs custom page. Used to access docs custom page. Example `https://mydocs.com/my-page`. */
+  slug: Scalars['String']['output'];
+  /** The title of the docs custom page. */
+  title: Scalars['String']['output'];
+  /** Visibility of the docs custom page. */
+  visibility: DocumentationSidebarItemVisibility;
+};
+
 export type DocsProjectInvitedMembers = {
   __typename?: 'DocsProjectInvitedMembers';
   email: Scalars['String']['output'];
@@ -1253,17 +1304,28 @@ export type DocsVisitors = {
 
 export type DocumentationApiReference = IGuide & {
   __typename?: 'DocumentationApiReference';
+  /** The parsed Swagger Definition of the API Reference. */
+  definition?: Maybe<Scalars['String']['output']>;
+  /** The base64 encoded gzip compressed string of the parsed OpenAPI Definition of the API Reference. */
+  definitionV2?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
+  /**
+   * A guide can be locked if the subscription doesn't cover to having this guide.
+   *
+   * A locked guide is readonly. It can only be removed or edited after subscribing.
+   */
+  isLocked: Scalars['Boolean']['output'];
   lastModified: Scalars['DateTime']['output'];
   name: Scalars['String']['output'];
   /** OG meta-data of the page. Contains image url used in open graph meta tags. */
   ogMetaData?: Maybe<OpenGraphMetaData>;
-  /** Url of the published api reference. */
+  /** URL of the published api reference. */
   publishedUrl?: Maybe<Scalars['String']['output']>;
   /** SEO information of the page. Contains title and description used in meta tags. */
   seo?: Maybe<Seo>;
   slug: Scalars['String']['output'];
   status: DocumentationGuideItemStatus;
+  /** URL of the API definition this guide is based on. */
   url: Scalars['String']['output'];
   versionId?: Maybe<Scalars['String']['output']>;
 };
@@ -1272,6 +1334,12 @@ export type DocumentationGuide = IGuide & {
   __typename?: 'DocumentationGuide';
   hasChanges: Scalars['Boolean']['output'];
   id: Scalars['ID']['output'];
+  /**
+   * A guide can be locked if the subscription doesn't cover to having this guide.
+   *
+   * A locked guide is readonly. It can only be removed or edited after subscribing.
+   */
+  isLocked: Scalars['Boolean']['output'];
   lastModified: Scalars['DateTime']['output'];
   name: Scalars['String']['output'];
   /** OG meta-data of the page. Contains image url used in open graph meta tags. */
@@ -1285,7 +1353,7 @@ export type DocumentationGuide = IGuide & {
   sidebarItems: Array<DocumentationSidebarItem>;
   slug: Scalars['String']['output'];
   status: DocumentationGuideItemStatus;
-  /** Url of the published guide. */
+  /** URL of the published guide. */
   url?: Maybe<Scalars['String']['output']>;
   versionId?: Maybe<Scalars['String']['output']>;
 };
@@ -1397,7 +1465,7 @@ export type DocumentationPage = {
   status: DocumentationSidebarItemStatus;
   title: Scalars['String']['output'];
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
-  /** Url of the published page. */
+  /** URL of the published page. */
   url?: Maybe<Scalars['String']['output']>;
   visibility: DocumentationSidebarItemVisibility;
 };
@@ -1416,6 +1484,7 @@ export type DocumentationPageDraft = {
 
 export type DocumentationProject = Node & {
   __typename?: 'DocumentationProject';
+  ai?: Maybe<DocumentationProjectAiPreference>;
   analytics: DocumentationProjectAnalytics;
   appearance: DocumentationProjectAppearance;
   createdAt: Scalars['DateTime']['output'];
@@ -1444,8 +1513,9 @@ export type DocumentationProject = Node & {
   /** A user search to find users with a specific status */
   searchUsers: DocumentationProjectSearchUserConnection;
   settings: DocumentationProjectSettings;
+  subscription?: Maybe<DocumentationProjectSubscription>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
-  /** Url of the documentation project. */
+  /** URL of the documentation project. */
   url: Scalars['String']['output'];
 };
 
@@ -1477,6 +1547,30 @@ export type DocumentationProjectPublishedGuideArgs = {
 
 export type DocumentationProjectSearchUsersArgs = {
   input: DocumentationProjectSearchUsersInput;
+};
+
+export type DocumentationProjectAiPreference = {
+  __typename?: 'DocumentationProjectAIPreference';
+  /** The prompts for the documentation project. These prompts are shown to the user when AI Search chatbot is opened. */
+  prompts: Array<DocumentationProjectAiPrompt>;
+  /** The settings for the AI feature. */
+  settings: DocumentationProjectAiSettings;
+};
+
+export type DocumentationProjectAiPrompt = {
+  __typename?: 'DocumentationProjectAIPrompt';
+  /** The date the prompt was created. */
+  createdAt: Scalars['DateTime']['output'];
+  /** The ID of the prompt. */
+  id: Scalars['ID']['output'];
+  /** The prompt text. */
+  prompt: Scalars['String']['output'];
+};
+
+export type DocumentationProjectAiSettings = {
+  __typename?: 'DocumentationProjectAISettings';
+  /** A flag to indicate if the AI search feature is enabled. */
+  isSearchEnabled: Scalars['Boolean']['output'];
 };
 
 export type DocumentationProjectAnalytics = {
@@ -1688,6 +1782,11 @@ export type DocumentationProjectPendingInviteConnection = PageConnection & {
   totalDocuments: Scalars['Int']['output'];
 };
 
+export enum DocumentationProjectProductName {
+  Enterprise = 'ENTERPRISE',
+  Startup = 'STARTUP'
+}
+
 /** A connection for the user search result. */
 export type DocumentationProjectSearchUserConnection = PageConnection & {
   __typename?: 'DocumentationProjectSearchUserConnection';
@@ -1729,6 +1828,21 @@ export type DocumentationProjectSettingsInput = {
   allowRobots?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
+export type DocumentationProjectSubscription = {
+  __typename?: 'DocumentationProjectSubscription';
+  maxSeats: Scalars['Int']['output'];
+  nextBillingCycle?: Maybe<Scalars['DateTime']['output']>;
+  productName: DocumentationProjectProductName;
+  status: DocumentationProjectSubscriptionStatus;
+};
+
+export enum DocumentationProjectSubscriptionStatus {
+  Active = 'ACTIVE',
+  Canceled = 'CANCELED',
+  PastDue = 'PAST_DUE',
+  Unpaid = 'UNPAID'
+}
+
 export type DocumentationSection = IDocumentationNestableSidebarItem & IDocumentationSidebarItem & {
   __typename?: 'DocumentationSection';
   createdAt: Scalars['DateTime']['output'];
@@ -1753,7 +1867,7 @@ export type DocumentationSidebarItemPage = IDocumentationNestableSidebarItem & I
   path: Scalars['String']['output'];
   status: DocumentationSidebarItemStatus;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
-  /** Url of the published page. */
+  /** URL of the published page. */
   url?: Maybe<Scalars['String']['output']>;
   visibility: DocumentationSidebarItemVisibility;
 };
@@ -1844,6 +1958,8 @@ export type Draft = Node & {
   /** The publication the draft belongs to. */
   publication?: Maybe<Publication>;
   publishAs?: Maybe<User>;
+  /** Returns the published post when the draft is published, returns null otherwise */
+  publishedPost?: Maybe<Post>;
   readTimeInMinutes: Scalars['Int']['output'];
   /** The date the draft is scheduled to be published. */
   scheduledDate?: Maybe<Scalars['DateTime']['output']>;
@@ -2025,6 +2141,18 @@ export type EmailNotificationPreferences = {
   weeklyNewsletterEmails: Scalars['Boolean']['output'];
 };
 
+/** The input for enabling AI search for a documentation project */
+export type EnableDocumentationProjectAiSearchInput = {
+  /** The ID of the documentation project */
+  projectId: Scalars['ID']['input'];
+};
+
+/** The response to enabling AI search for a documentation project */
+export type EnableDocumentationProjectAiSearchPayload = {
+  __typename?: 'EnableDocumentationProjectAISearchPayload';
+  project?: Maybe<DocumentationProject>;
+};
+
 export type EnableDocumentationProjectHeadlessCmsInput = {
   projectId: Scalars['ID']['input'];
 };
@@ -2100,6 +2228,17 @@ export enum FeedType {
   /** Returns posts based on old personalization algorithm. */
   Relevant = 'RELEVANT'
 }
+
+export type FollowTagsInput = {
+  /** List of tag ids to follow. */
+  ids: Array<Scalars['ID']['input']>;
+};
+
+export type FollowTagsPayload = {
+  __typename?: 'FollowTagsPayload';
+  /** List of tags followed by the user. */
+  tags?: Maybe<Array<Tag>>;
+};
 
 export type GptBotCrawlingFeature = Feature & {
   __typename?: 'GPTBotCrawlingFeature';
@@ -2527,9 +2666,20 @@ export type IDocumentationSidebarItem = {
 
 export type IGuide = {
   id: Scalars['ID']['output'];
+  /**
+   * A guide can be locked if the subscription doesn't cover to having this guide.
+   *
+   * A locked guide is readonly. It can only be removed or edited after subscribing.
+   */
+  isLocked: Scalars['Boolean']['output'];
   lastModified: Scalars['DateTime']['output'];
   name: Scalars['String']['output'];
+  /** OG meta-data of the page. Contains image url used in open graph meta tags. */
+  ogMetaData?: Maybe<OpenGraphMetaData>;
+  /** SEO information of the page. Contains title and description used in meta tags. */
+  seo?: Maybe<Seo>;
   slug: Scalars['String']['output'];
+  status: DocumentationGuideItemStatus;
   versionId?: Maybe<Scalars['String']['output']>;
 };
 
@@ -2631,6 +2781,7 @@ export type IUserPublicationsArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   filter?: InputMaybe<UserPublicationsConnectionFilter>;
   first: Scalars['Int']['input'];
+  sortBy?: InputMaybe<UserPublicationsSort>;
 };
 
 
@@ -2753,8 +2904,6 @@ export type Mutation = {
   /** Adds a comment to a post. */
   addComment: AddCommentPayload;
   addDocumentationProjectCustomDomain: AddDocumentationProjectCustomDomainPayload;
-  /** Mutation to add a Member to a Documentation Project */
-  addDocumentationProjectMember: AddDocumentationProjectMemberPayload;
   /** Adds a post to a series. */
   addPostToSeries: AddPostToSeriesPayload;
   /** Adds a reply to a comment. */
@@ -2784,8 +2933,13 @@ export type Mutation = {
   /** Deletes a role based invite. */
   deleteRoleBasedInvite: DeleteRoleBasedInvitePayload;
   deleteWebhook: DeleteWebhookPayload;
+  /** Mutation to disable AI search for a documentation project */
+  disableDocumentationProjectAISearch: DisableDocumentationProjectAiSearchPayload;
   disableDocumentationProjectHeadlessCms: DisableDocumentationProjectHeadlessCmsPayload;
+  /** Mutation to enable AI search for a documentation project */
+  enableDocumentationProjectAISearch: EnableDocumentationProjectAiSearchPayload;
   enableDocumentationProjectHeadlessCms: EnableDocumentationProjectHeadlessCmsPayload;
+  followTags: FollowTagsPayload;
   /**
    * Will generate a authorization JWT to preview a docs project.
    * A token is required to generate the JWT.
@@ -2821,6 +2975,10 @@ export type Mutation = {
   /** Removes a comment from a post. */
   removeComment: RemoveCommentPayload;
   removeDocumentationGuide: RemoveDocumentationGuidePayload;
+  /** Mutation to remove a documentation project. This will free the custom domain and subdomain and removes all guides and pages. */
+  removeDocumentationProject: RemoveDocumentationProjectPayload;
+  /** Mutation to remove a prompt from the AI search */
+  removeDocumentationProjectAIPrompt: RemoveDocumentationProjectAiPromptPayload;
   removeDocumentationProjectCustomDomain: RemoveDocumentationProjectCustomDomainPayload;
   /** Mutation to remove a Member from a Documentation Project */
   removeDocumentationProjectMember: RemoveDocumentationProjectMemberPayload;
@@ -2851,6 +3009,8 @@ export type Mutation = {
   scheduleDraft: ScheduleDraftPayload;
   setDocumentationSidebarItemVisibility: SetDocumentationSidebarItemVisibilityPayload;
   subscribeToNewsletter: SubscribeToNewsletterPayload;
+  /** Mutation to sync documentation API reference definition */
+  syncDocumentationProjectApiDefinition: SyncDocumentationProjectApiDefinitionPayload;
   /** Toggle allowContributorEdits flag to allow or restrict external contributors to further edit published articles. */
   toggleAllowContributorEdits: ToggleAllowContributorEditsPayload;
   /**
@@ -2867,6 +3027,7 @@ export type Mutation = {
   /** Toggle text selection sharer feature. */
   toggleTextSelectionSharer: ToggleTextSelectionSharerPayload;
   triggerWebhookTest: TriggerWebhookTestPayload;
+  unfollowTags: UnfollowTagsPayload;
   unsubscribeFromNewsletter: UnsubscribeFromNewsletterPayload;
   /** Updates a comment on a post. */
   updateComment: UpdateCommentPayload;
@@ -2876,8 +3037,10 @@ export type Mutation = {
   updateDocumentationIntegrations: UpdateDocumentationIntegrationsPayload;
   updateDocumentationLink: UpdateDocumentationLinkPayload;
   updateDocumentationPageSettings: UpdateDocumentationPageSettingsPayload;
+  /** Mutation to update the AI search prompts */
+  updateDocumentationProjectAIPrompt: UpdateDocumentationProjectAiPromptPayload;
   updateDocumentationProjectSubdomain: UpdateDocumentationProjectSubdomainPayload;
-  /** Mutation to update a section in a guide  */
+  /** Mutation to update a section in a guide */
   updateDocumentationSection: UpdateDocumentationSectionPayload;
   updatePost: UpdatePostPayload;
   updateRedirectionRule: UpdateRedirectionRulePayload;
@@ -2914,11 +3077,6 @@ export type MutationAddCommentArgs = {
 
 export type MutationAddDocumentationProjectCustomDomainArgs = {
   input: AddDocumentationProjectCustomDomainInput;
-};
-
-
-export type MutationAddDocumentationProjectMemberArgs = {
-  input: AddDocumentationProjectMemberInput;
 };
 
 
@@ -3012,13 +3170,28 @@ export type MutationDeleteWebhookArgs = {
 };
 
 
+export type MutationDisableDocumentationProjectAiSearchArgs = {
+  input: DisableDocumentationProjectAiSearchInput;
+};
+
+
 export type MutationDisableDocumentationProjectHeadlessCmsArgs = {
   input: DisableDocumentationProjectHeadlessCmsInput;
 };
 
 
+export type MutationEnableDocumentationProjectAiSearchArgs = {
+  input: EnableDocumentationProjectAiSearchInput;
+};
+
+
 export type MutationEnableDocumentationProjectHeadlessCmsArgs = {
   input: EnableDocumentationProjectHeadlessCmsInput;
+};
+
+
+export type MutationFollowTagsArgs = {
+  input: FollowTagsInput;
 };
 
 
@@ -3109,6 +3282,16 @@ export type MutationRemoveCommentArgs = {
 
 export type MutationRemoveDocumentationGuideArgs = {
   input: RemoveDocumentationGuideInput;
+};
+
+
+export type MutationRemoveDocumentationProjectArgs = {
+  input: RemoveDocumentationProjectInput;
+};
+
+
+export type MutationRemoveDocumentationProjectAiPromptArgs = {
+  input: RemoveDocumentationProjectAiPromptInput;
 };
 
 
@@ -3217,6 +3400,11 @@ export type MutationSubscribeToNewsletterArgs = {
 };
 
 
+export type MutationSyncDocumentationProjectApiDefinitionArgs = {
+  input: SyncDocumentationProjectApiDefinitionInput;
+};
+
+
 export type MutationToggleAllowContributorEditsArgs = {
   input: ToggleAllowContributorEditsInput;
 };
@@ -3245,6 +3433,11 @@ export type MutationToggleTextSelectionSharerArgs = {
 
 export type MutationTriggerWebhookTestArgs = {
   input: TriggerWebhookTestInput;
+};
+
+
+export type MutationUnfollowTagsArgs = {
+  input: UnfollowTagsInput;
 };
 
 
@@ -3285,6 +3478,11 @@ export type MutationUpdateDocumentationLinkArgs = {
 
 export type MutationUpdateDocumentationPageSettingsArgs = {
   input: UpdateDocumentationPageSettingsInput;
+};
+
+
+export type MutationUpdateDocumentationProjectAiPromptArgs = {
+  input: UpdateDocumentationProjectAiPromptInput;
 };
 
 
@@ -3451,6 +3649,7 @@ export type MyUserPublicationsArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   filter?: InputMaybe<UserPublicationsConnectionFilter>;
   first: Scalars['Int']['input'];
+  sortBy?: InputMaybe<UserPublicationsSort>;
 };
 
 
@@ -5091,6 +5290,18 @@ export type RemoveDocumentationGuidePayload = {
   guide?: Maybe<DocumentationGuideItem>;
 };
 
+/** The input for removing a prompt from the AI search */
+export type RemoveDocumentationProjectAiPromptInput = {
+  projectId: Scalars['ID']['input'];
+  promptId: Scalars['ID']['input'];
+};
+
+/** Response to removing a prompt from the AI search */
+export type RemoveDocumentationProjectAiPromptPayload = {
+  __typename?: 'RemoveDocumentationProjectAIPromptPayload';
+  project: DocumentationProject;
+};
+
 export type RemoveDocumentationProjectCustomDomainInput = {
   projectId: Scalars['ID']['input'];
 };
@@ -5098,6 +5309,12 @@ export type RemoveDocumentationProjectCustomDomainInput = {
 export type RemoveDocumentationProjectCustomDomainPayload = {
   __typename?: 'RemoveDocumentationProjectCustomDomainPayload';
   project?: Maybe<DocumentationProject>;
+};
+
+/** The input for removing a documentation project. */
+export type RemoveDocumentationProjectInput = {
+  /** The ID of the documentation project that should be removed. */
+  projectId: Scalars['ID']['input'];
 };
 
 /** The input for the removal of a member from a documentation */
@@ -5110,6 +5327,13 @@ export type RemoveDocumentationProjectMemberPayload = {
   __typename?: 'RemoveDocumentationProjectMemberPayload';
   project?: Maybe<DocumentationProject>;
   removedMember?: Maybe<DocumentationProjectMember>;
+};
+
+/** The payload for removing a documentation project. */
+export type RemoveDocumentationProjectPayload = {
+  __typename?: 'RemoveDocumentationProjectPayload';
+  /** The documentation project that was removed. */
+  project?: Maybe<DocumentationProject>;
 };
 
 export type RemoveDocumentationSidebarItemInput = {
@@ -5436,6 +5660,7 @@ export enum Scope {
   UpdatePost = 'update_post',
   UpdateReply = 'update_reply',
   WebhookAdmin = 'webhook_admin',
+  WriteAiSearchPrompt = 'write_ai_search_prompt',
   WriteDraft = 'write_draft',
   WriteDraftRevision = 'write_draft_revision',
   WritePost = 'write_post',
@@ -5663,6 +5888,23 @@ export type SubscribeToNewsletterPayload = {
   status?: Maybe<NewsletterSubscribeStatus>;
 };
 
+/** The input for syncing API reference definitions */
+export type SyncDocumentationProjectApiDefinitionInput = {
+  /** The ID of the docs API reference */
+  apiReferenceId: Scalars['ID']['input'];
+  /** The ID of the documentation project */
+  projectId: Scalars['ID']['input'];
+  /** The ID of the reference version */
+  versionId: Scalars['ID']['input'];
+};
+
+/** The response to syncing documentation project API Reference definition */
+export type SyncDocumentationProjectApiDefinitionPayload = {
+  __typename?: 'SyncDocumentationProjectApiDefinitionPayload';
+  /** Signifies if the mutation was successful. */
+  success: Scalars['Boolean']['output'];
+};
+
 export type TableOfContentsFeature = Feature & {
   __typename?: 'TableOfContentsFeature';
   /** Whether or not the user has chosen to show a table of contents on the post. */
@@ -5830,6 +6072,17 @@ export type TriggerWebhookTestPayload = {
   webhook?: Maybe<Webhook>;
 };
 
+export type UnfollowTagsInput = {
+  /** List of tag ids to unfollow. */
+  ids: Array<Scalars['ID']['input']>;
+};
+
+export type UnfollowTagsPayload = {
+  __typename?: 'UnfollowTagsPayload';
+  /** List of tags unfollowed by the user. */
+  tags?: Maybe<Array<Tag>>;
+};
+
 /** Views implementation that will be returned if no grouping is applied. */
 export type UngroupedDocsViews = DocsViews & Node & {
   __typename?: 'UngroupedDocsViews';
@@ -5959,6 +6212,22 @@ export type UpdateDocumentationPageSettingsPayload = {
   guide?: Maybe<DocumentationGuide>;
   page?: Maybe<DocumentationPage>;
   sidebarItem?: Maybe<DocumentationSidebarItemPage>;
+};
+
+/** The input for updating the AI search prompts */
+export type UpdateDocumentationProjectAiPromptInput = {
+  /** The ID of the documentation project */
+  projectId: Scalars['ID']['input'];
+  /** The prompt text */
+  prompt: Scalars['String']['input'];
+  /** The ID of the prompt to update */
+  promptId: Scalars['ID']['input'];
+};
+
+/** Response to updating the AI search prompts */
+export type UpdateDocumentationProjectAiPromptPayload = {
+  __typename?: 'UpdateDocumentationProjectAIPromptPayload';
+  project?: Maybe<DocumentationProject>;
 };
 
 export type UpdateDocumentationProjectSubdomainInput = {
@@ -6226,6 +6495,7 @@ export type UserPublicationsArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   filter?: InputMaybe<UserPublicationsConnectionFilter>;
   first: Scalars['Int']['input'];
+  sortBy?: InputMaybe<UserPublicationsSort>;
 };
 
 
@@ -6412,6 +6682,18 @@ export type UserPublicationsEdge = Edge & {
   /** The role of the user in the publication. */
   role: UserPublicationRole;
 };
+
+/** Sorting for the publications of a user. */
+export enum UserPublicationsSort {
+  /** Oldest publication first. */
+  DateCreatedAsc = 'DATE_CREATED_ASC',
+  /** Newest publication first. */
+  DateCreatedDesc = 'DATE_CREATED_DESC',
+  /** Recently updated publication last. */
+  DateUpdatedAsc = 'DATE_UPDATED_ASC',
+  /** Recently updated publication first. */
+  DateUpdatedDesc = 'DATE_UPDATED_DESC'
+}
 
 export type UserRecommendedPublicationEdge = {
   __typename?: 'UserRecommendedPublicationEdge';

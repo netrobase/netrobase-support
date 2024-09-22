@@ -15,7 +15,7 @@ export default function Team() {
 			<TeamSVG />
 			<main className="m-2 flex flex-col items-center space-y-10 p-2">
 				<h1 className="text-center text-4xl underline underline-offset-4">Engineering Team</h1>
-				<div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+				<div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2">
 					{/* Team members */}
 					<div className="flex flex-col items-center space-y-2 rounded-md border p-5">
 						<Image
@@ -76,7 +76,7 @@ export default function Team() {
 							className="h-auto w-auto rounded-full"
 						/>
 						<p>Anioche Stephen</p>
-						<p>UI/UX/Graphics Desingner</p>
+						<p>UI/UX/Graphics Desingners</p>
 						<div className="flex flex-row space-x-2">
 							<Link href="https://www.linkedin.com/in/kc-aniochie/" target="_blank">
 								<SlSocialLinkedin />
@@ -85,6 +85,30 @@ export default function Team() {
 								<FaDribbble />
 							</Link>
 							<Link href="https://www.instagram.com/kcee_milly/" target="_blank">
+								<FaInstagram />
+							</Link>
+						</div>
+					</div>
+					<div className="flex flex-col items-center space-y-2 rounded-md border p-5">
+						<Image
+							src="/images/nick.jpeg"
+							alt="Nicholas Precious"
+							width={100}
+							height={100}
+							priority={true}
+							placeholder="empty"
+							className="h-auto w-auto rounded-full"
+						/>
+						<p>Nicholas Precious</p>
+						<p>Products/Social/Content Manager</p>
+						<div className="flex flex-row space-x-2">
+							<Link href="https://www.linkedin.com/in/nicholas-precious-19697525b/" target="_blank">
+								<SlSocialLinkedin />
+							</Link>
+							<Link href="https://twitter.com/NicholasPreci18" target="_blank">
+								<FaXTwitter />
+							</Link>
+							<Link href="https://www.instagram.com/chinnydiamond24/" target="_blank">
 								<FaInstagram />
 							</Link>
 						</div>
