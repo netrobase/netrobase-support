@@ -927,11 +927,15 @@ export type CreateDocumentationPageDraftInput = {
   description?: InputMaybe<Scalars['String']['input']>;
   guideSlug: Scalars['String']['input'];
   label?: InputMaybe<Scalars['String']['input']>;
+  /** The meta tags for the page. */
+  metaTags?: InputMaybe<MetaTagsInput>;
   parentId?: InputMaybe<Scalars['ID']['input']>;
   projectId: Scalars['ID']['input'];
   /** The slug of the path used to generate the path. */
   slug?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
+  /** The visibility of the page. */
+  visibility?: InputMaybe<DocumentationSidebarItemVisibility>;
 };
 
 export type CreateDocumentationPageDraftPayload = {
@@ -2273,6 +2277,33 @@ export type GenerateDocumentationProjectPreviewTokenPayload = {
   /** The token that can be exchanged for a JWT to preview the documentation project. */
   token?: Maybe<Scalars['String']['output']>;
 };
+
+export type GitHubActivityLog = Node & {
+  __typename?: 'GitHubActivityLog';
+  /** The branch name that the commit belongs to. */
+  branchName: Scalars['String']['output'];
+  /** The date the log was created. */
+  createdAt: Scalars['DateTime']['output'];
+  /** The commit ID. */
+  gitCommitId: Scalars['String']['output'];
+  /** The commit message. */
+  gitCommitMessage: Scalars['String']['output'];
+  /** The commit URL. */
+  gitCommitUrl: Scalars['String']['output'];
+  /** The ID of the log. */
+  id: Scalars['ID']['output'];
+  /** The status of the sync. */
+  status: GitHubSyncStatus;
+};
+
+export enum GitHubSyncStatus {
+  /** The sync is in progress */
+  Building = 'BUILDING',
+  /** The sync failed */
+  Failed = 'FAILED',
+  /** The sync is complete */
+  Ready = 'READY'
+}
 
 /** Views implementation that will be returned if grouping by browser. */
 export type GroupedByBrowserViews = Node & Views & {

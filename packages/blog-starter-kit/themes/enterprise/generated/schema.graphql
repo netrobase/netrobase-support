@@ -909,11 +909,15 @@ input CreateDocumentationPageDraftInput {
   description: String
   guideSlug: String!
   label: String = "Untitled Page"
+  """The meta tags for the page."""
+  metaTags: MetaTagsInput
   parentId: ID
   projectId: ID!
   """The slug of the path used to generate the path."""
   slug: String
   title: String = "Untitled Page"
+  """The visibility of the page."""
+  visibility: DocumentationSidebarItemVisibility
 }
 
 type CreateDocumentationPageDraftPayload {
@@ -2239,6 +2243,32 @@ type GenerateDocumentationProjectPreviewTokenPayload {
   The token that can be exchanged for a JWT to preview the documentation project.
   """
   token: String
+}
+
+type GitHubActivityLog implements Node {
+  """The branch name that the commit belongs to."""
+  branchName: String!
+  """The date the log was created."""
+  createdAt: DateTime!
+  """The commit ID."""
+  gitCommitId: String!
+  """The commit message."""
+  gitCommitMessage: String!
+  """The commit URL."""
+  gitCommitUrl: String!
+  """The ID of the log."""
+  id: ID!
+  """The status of the sync."""
+  status: GitHubSyncStatus!
+}
+
+enum GitHubSyncStatus {
+  """The sync is in progress"""
+  BUILDING
+  """The sync failed"""
+  FAILED
+  """The sync is complete"""
+  READY
 }
 
 """Views implementation that will be returned if grouping by browser."""

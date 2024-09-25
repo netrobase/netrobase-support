@@ -43,7 +43,7 @@ export default function Team() {
 					</div>
 					<div className="flex flex-col items-center space-y-2 rounded-md border p-5">
 						<Image
-							src="/images/fortune.png"
+							src="/images/fortune2.jpg"
 							alt="Eso Fortunatus"
 							width={100}
 							height={100}
@@ -76,7 +76,7 @@ export default function Team() {
 							className="h-auto w-auto rounded-full"
 						/>
 						<p>Anioche Stephen</p>
-						<p>UI/UX/Graphics Desingners</p>
+						<p>UI/UX/Graphics Designer</p>
 						<div className="flex flex-row space-x-2">
 							<Link href="https://www.linkedin.com/in/kc-aniochie/" target="_blank">
 								<SlSocialLinkedin />
