@@ -28,7 +28,7 @@ export default function Team() {
 							className="h-auto w-auto rounded-full"
 						/>
 						<p>Leonard Nzekwe</p>
-						<p>Web Developer</p>
+						<p>CTO/Web Dev (Backend & Frontend)</p>
 						<div className="flex flex-row space-x-2">
 							<Link href="https://www.linkedin.com/in/leonardnzekwe/" target="_blank">
 								<SlSocialLinkedin />
@@ -52,7 +52,7 @@ export default function Team() {
 							className="h-auto w-auto rounded-full"
 						/>
 						<p>Eso Fortunatus</p>
-						<p>Front End/Web3 Developer</p>
+						<p>Front End Dev/Web3 Dev</p>
 						<div className="flex flex-row space-x-2">
 							<Link href="https://www.linkedin.com/in/fortune-eso/" target="_blank">
 								<SlSocialLinkedin />
@@ -76,7 +76,7 @@ export default function Team() {
 							className="h-auto w-auto rounded-full"
 						/>
 						<p>Anioche Stephen</p>
-						<p>UI/UX/Graphics Designer</p>
+						<p>Product Designer</p>
 						<div className="flex flex-row space-x-2">
 							<Link href="https://www.linkedin.com/in/kc-aniochie/" target="_blank">
 								<SlSocialLinkedin />
@@ -100,7 +100,7 @@ export default function Team() {
 							className="h-auto w-auto rounded-full"
 						/>
 						<p>Nicholas Precious</p>
-						<p>Products/Social/Content Manager</p>
+						<p>Product Manager</p>
 						<div className="flex flex-row space-x-2">
 							<Link href="https://www.linkedin.com/in/nicholas-precious-19697525b/" target="_blank">
 								<SlSocialLinkedin />
@@ -110,6 +110,30 @@ export default function Team() {
 							</Link>
 							<Link href="https://www.instagram.com/chinnydiamond24/" target="_blank">
 								<FaInstagram />
+							</Link>
+						</div>
+					</div>
+					<div className="flex flex-col items-center space-y-2 rounded-md border p-5">
+						<Image
+							src="/images/melvin2.jpg"
+							alt="Melvin Oluebube"
+							width={100}
+							height={100}
+							priority={true}
+							placeholder="empty"
+							className="h-auto w-auto rounded-full"
+						/>
+						<p>Melvin Oluebube</p>
+						<p>Front End Developer</p>
+						<div className="flex flex-row space-x-2">
+							<Link href="https://www.linkedin.com/in/melvin-nzekwe/" target="_blank">
+								<SlSocialLinkedin />
+							</Link>
+							<Link href="https://github.com/RichardMelvin019" target="_blank">
+								<SiGithub />
+							</Link>
+							<Link href="https://twitter.com/Richardmelvin99" target="_blank">
+								<FaXTwitter />
 							</Link>
 						</div>
 					</div>
