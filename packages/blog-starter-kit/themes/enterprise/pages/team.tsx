@@ -28,7 +28,7 @@ export default function Team() {
 							className="h-auto w-auto rounded-full"
 						/>
 						<p>Leonard Nzekwe</p>
-						<p>CTO/Web Dev (Backend & Frontend)</p>
+						<p className="text-sm">CTO/Web Dev (Backend & Frontend)</p>
 						<div className="flex flex-row space-x-2">
 							<Link href="https://www.linkedin.com/in/leonardnzekwe/" target="_blank">
 								<SlSocialLinkedin />
