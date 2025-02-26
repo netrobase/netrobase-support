@@ -19,7 +19,7 @@ export default function Team() {
 					{/* Team members */}
 					<div className="flex flex-col items-center space-y-2 rounded-md border p-5">
 						<Image
-							src="/images/leo.png"
+							src="/images/netrobase_leonard.jpg"
 							alt="Leonard Nzekwe"
 							width={100}
 							height={100}
@@ -43,7 +43,7 @@ export default function Team() {
 					</div>
 					<div className="flex flex-col items-center space-y-2 rounded-md border p-5">
 						<Image
-							src="/images/fortune2.jpg"
+							src="/images/netrobase_fortunatus.jpg"
 							alt="Eso Fortunatus"
 							width={100}
 							height={100}
@@ -52,7 +52,7 @@ export default function Team() {
 							className="h-auto w-auto rounded-full"
 						/>
 						<p>Eso Fortunatus</p>
-						<p>Front End Dev/Web3 Dev</p>
+						<p>Front End/Web3 Dev</p>
 						<div className="flex flex-row space-x-2">
 							<Link href="https://www.linkedin.com/in/fortune-eso/" target="_blank">
 								<SlSocialLinkedin />
@@ -67,7 +67,7 @@ export default function Team() {
 					</div>
 					<div className="flex flex-col items-center space-y-2 rounded-md border p-5">
 						<Image
-							src="/images/stephen.png"
+							src="/images/netrobase_stephen.jpg"
 							alt="Anioche Stephen"
 							width={100}
 							height={100}
@@ -91,7 +91,7 @@ export default function Team() {
 					</div>
 					<div className="flex flex-col items-center space-y-2 rounded-md border p-5">
 						<Image
-							src="/images/nick.jpeg"
+							src="/images/netrobase_precious.jpg"
 							alt="Nicholas Precious"
 							width={100}
 							height={100}
