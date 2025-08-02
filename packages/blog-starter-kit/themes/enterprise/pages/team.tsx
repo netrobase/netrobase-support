@@ -122,6 +122,7 @@ export default function Team() {
 							priority={true}
 							placeholder="empty"
 							className="h-auto w-auto rounded-full"
+							
 						/>
 						<p>Melvin Oluebube</p>
 						<p>Front End Developer</p>
