@@ -121,8 +121,7 @@ export default function Team() {
 							height={100}
 							priority={true}
 							placeholder="empty"
-							className="h-auto w-auto rounded-full"
-							
+							className="h-auto w-auto rounded-full"	
 						/>
 						<p>Melvin Oluebube</p>
 						<p>Front End Developer</p>
