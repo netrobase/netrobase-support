@@ -115,7 +115,7 @@ export default function Team() {
 					</div>
 					<div className="flex flex-col items-center space-y-2 rounded-md border p-5">
 						<Image
-							src="/images/melvin4c.jpg"
+							src="/images/melvin4.jpg"
 							alt="Melvin Oluebube"
 							width={100}
 							height={100}
