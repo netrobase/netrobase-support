@@ -123,6 +123,7 @@ export default function Team() {
 							placeholder="empty"
 							className="h-auto w-auto rounded-full"	
 						/>
+						
 						<p>Richard Melvin</p>
 						<p>Front End Developer</p>
 						<div className="flex flex-row space-x-2">
