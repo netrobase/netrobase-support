@@ -116,14 +116,14 @@ export default function Team() {
 					<div className="flex flex-col items-center space-y-2 rounded-md border p-5">
 						<Image
 							src="/images/melvin4.jpg"
-							alt="Melvin Oluebube"
+							alt="Richard Melvin"
 							width={100}
 							height={100}
 							priority={true}
 							placeholder="empty"
 							className="h-auto w-auto rounded-full"	
 						/>
-						<p>Melvin Oluebube</p>
+						<p>Richard Melvin</p>
 						<p>Front End Developer</p>
 						<div className="flex flex-row space-x-2">
 							<Link href="https://www.linkedin.com/in/melvin-nzekwe/" target="_blank">
